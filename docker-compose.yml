@@ -1,0 +1,43 @@
+version: "3"
+services:
+  frontend:
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    stdin_open: true
+
+  nginx: 
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports: 
+      - "3000:80"
+  
+  backend:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    depends_on:
+      - mysql
+
+  mysql:
+    platform: linux/x86_64
+    image: mysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/mysql_data:/var/lib/mysql
+    container_name: mysql-app
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: aws_project
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  
+    
