@@ -26,7 +26,7 @@ services:
       - mysql
 
   mysql:
-    platform: linux/x86_64
+    #platform: linux/x86_64
     image: mysql
     restart: unless-stopped
     ports:
