@@ -35,7 +35,7 @@ services:
       - ./mysql/mysql_data:/var/lib/mysql
     container_name: mysql-app
     environment:
-      MYSQL_USER: admin
+      #MYSQL_USER: admin
       MYSQL_PASSWORD: admin
       MYSQL_DATABASE: aws_project
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
