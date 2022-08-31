@@ -23,7 +23,3 @@ aws ec2 서버에 2개의 nginx, react, spring boot, mysql을 docker-container�
 4. jenkins에서 spring boot를 빌드해준 후 (react의 경우 도커 이미지 생성 시 빌드해주도록 구성하였기 때문에 spring boot만 해주었다)
 5. 빌드가 완료되면 jenkins container에 있는 실행 파일 및 디렉토리를 SSH를 통해 ec2 서버로 전송한 후
 6. 도커 컨테이너를 실행시켜 배포를 완료한다.
-
-
-더 자세한 내용은 [gitbook](https://yeseul4072.gitbook.io/yeseul/project/aws)에 작성해두었습니다.
-
